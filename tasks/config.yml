@@ -1,0 +1,13 @@
+---
+- name: Copy configuration files
+  template:
+    src: "{{ item }}.j2"
+    dest: "/etc/netdata/{{ item }}"
+    owner: root
+    group: root
+    mode: 0644
+  notify: Restart netdata service
+  become: true
+  with_items:
+    - netdata.conf
+    - stream.conf

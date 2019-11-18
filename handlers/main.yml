@@ -1,0 +1,6 @@
+---
+- name: Restart netdata service
+  service:
+    name: "{{ netdata_service_name }}"
+    state: restarted
+  become: true

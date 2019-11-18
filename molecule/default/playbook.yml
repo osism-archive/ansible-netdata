@@ -1,0 +1,9 @@
+---
+- name: Playbook for role testing
+  hosts: all
+
+  vars:
+    netdata_configure_repository: yes
+
+  roles:
+    - role: ansible-netdata
