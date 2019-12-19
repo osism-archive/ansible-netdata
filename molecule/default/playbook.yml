@@ -4,6 +4,7 @@
 
   vars:
     netdata_configure_repository: yes
+    netdata_host_type: server
 
   roles:
     - role: ansible-netdata
