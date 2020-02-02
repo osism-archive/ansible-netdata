@@ -3,16 +3,19 @@
 [global]
         hostname = {{ inventory_hostname }}
         run as user = netdata
-        web files owner = root
-        web files group = netdata
 
 {% if netdata_host_type == 'client' %}
         memory mode = none
 {% endif %}
 
-{% if netdata_host_type == 'client' %}
 [web]
+{% if netdata_host_type == 'client' %}
         mode = none
+{% else %}
+        web files owner = root
+        web files group = netdata
+	default port = {{ netdata_api_port }}
+	bind to = {{ netdata_api_host }}
 {% endif %}
 
 [health]
