@@ -11,3 +11,10 @@
   with_items:
     - netdata.conf
     - stream.conf
+
+- name: Add netdata user to docker group
+  user:
+    name: netdata
+    groups: docker
+    append: yes
+  become: true
