@@ -2,10 +2,9 @@
 - name: Playbook for role preparations
   hosts: all
 
-  roles: []
+  vars:
+    docker_configure_repository: yes
+    docker_user: ubuntu
 
-  tasks:
-    - name: Update package cache
-      apt:
-        update_cache: yes
-      become: true
+  roles:
+    - role: osism.docker
