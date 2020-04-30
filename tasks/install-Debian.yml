@@ -27,18 +27,6 @@
     state: present
   become: true
 
-- name: Create required directories
-  file:
-    path: "{{ item }}"
-    state: directory
-    mode: 0750
-    owner: netdata
-    group: netdata
-  become: true
-  with_items:
-    - /var/cache/netdata
-    - /var/log/netdata
-
 - name: Start/enable netdata service
   service:
     name: "{{ netdata_service_name }}"
