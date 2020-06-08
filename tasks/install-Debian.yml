@@ -17,6 +17,7 @@
   apt_repository:
     repo: "{{ netdata_debian_repository }}"
     state: present
+    filename: netdata
     update_cache: yes
   become: true
   when: netdata_configure_repository|bool
