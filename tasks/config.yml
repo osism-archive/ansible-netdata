@@ -12,6 +12,21 @@
     - netdata.conf
     - stream.conf
 
+- name: Retrieve /etc/netdata/.opt-out-from-anonymous-statistics status
+  stat:
+    path: /etc/netdata/.opt-out-from-anonymous-statistics
+  register: result
+
+- name: Opt out from anonymous statistics
+  file:
+    path: /etc/netdata/.opt-out-from-anonymous-statistics
+    owner: root
+    group: root
+    mode: 0644
+    state: touch
+  become: true
+  when: result.stat.exists is defined and not result.stat.exists
+
 - name: Add netdata user to docker group
   user:
     name: netdata
