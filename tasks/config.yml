@@ -1,5 +1,5 @@
 ---
-- name: Copy configuration files
+- name: Copy /etc/netdata configuration files
   template:
     src: "{{ item }}.j2"
     dest: "/etc/netdata/{{ item }}"
@@ -11,6 +11,16 @@
   with_items:
     - netdata.conf
     - stream.conf
+
+- name: Copy cloud.conf configuration file
+  template:
+    src: cloud.conf.j2
+    dest: /var/lib/netdata/cloud.d/cloud.conf
+    owner: netdata
+    group: netdata
+    mode: 0644
+  notify: Restart netdata service
+  become: true
 
 - name: Retrieve /etc/netdata/.opt-out-from-anonymous-statistics status
   stat:
