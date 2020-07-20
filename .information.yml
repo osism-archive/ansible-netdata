@@ -1,4 +1,7 @@
 ---
 ansible_role_name: netdata
+distributions:
+  - bionic
+  - focal
 molecule_needs_docker: true
 travis_decrypt_key: e627d3f89f8c
