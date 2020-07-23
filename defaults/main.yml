@@ -29,7 +29,7 @@ netdata_debian_repository: "deb [ arch={{ netdata_debian_repository_arch }} ] ht
 
 netdata_host_type: client
 
-netdata_api_key: b34d3a1a-f903-462a-91a6-30e81c9e48d5
+netdata_api_key: 00000000-0000-0000-0000-000000000000
 
 netdata_api_host: 127.0.0.1
 netdata_api_port: 19999
