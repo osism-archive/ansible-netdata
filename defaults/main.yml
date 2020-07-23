@@ -2,6 +2,13 @@
 netdata_action: deploy
 
 ##########################
+# internal
+
+netdata_configuration_files:
+  - netdata.conf
+  - stream.conf
+
+##########################
 # services
 
 netdata_service_name: netdata

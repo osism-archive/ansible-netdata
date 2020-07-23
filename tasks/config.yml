@@ -8,9 +8,7 @@
     mode: 0644
   notify: Restart netdata service
   become: true
-  with_items:
-    - netdata.conf
-    - stream.conf
+  loop: "{{ netdata_configuration_files }}"
 
 - name: Copy cloud.conf configuration file
   template:
